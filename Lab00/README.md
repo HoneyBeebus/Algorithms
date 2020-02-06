@@ -9,7 +9,7 @@ The input starts with an integer number which indicates the number of elements (
 Output the maximum of all numbers in the sequence, followed by a semi- colon and the minimum number. There should be no white character in your output.
 
 ## Examples of Input and Output:
-```
+
 *Input*
 6
 15
