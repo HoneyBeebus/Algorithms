@@ -11,6 +11,7 @@ Output the maximum of all numbers in the sequence, followed by a semi- colon and
 ## Examples of Input and Output:
 
 *Input*
+```
 6
 15
 13
@@ -18,7 +19,10 @@ Output the maximum of all numbers in the sequence, followed by a semi- colon and
 11
 16
 14
+```
 *Output*
+```
 16;11
+```
 
 [Full pdf](Lab00.pdf)
