@@ -19,17 +19,17 @@ int parent(int i) {
 
 int left(int i) {
     int temp;
-    temp = 2*i;
+    temp = 2*i + 1;
     return (temp);
 }
 
 int right(int i) {
-    return ((2*i) + 1);
+    return ((2*i) + 2);
 }
 
 int heapMaximum(int * A) {
     int temp;
-    temp = A[i];
+    temp = A[1];
     return (temp);
 }
 
@@ -58,13 +58,13 @@ void maxHeapify(int * A, int i, int heapSize) {
     int l = left(i);
     int r = right(i);
     int largest;
-    if (l <= heapSize && A[l] > A[i]) {
+    if (l < heapSize && A[l] > A[i]) {
         largest = l;
     }
     else {
         largest = i;
     }
-    if (r <= heapSize && A[r] > A[largest]) {
+    if (r < heapSize && A[r] > A[largest]) {
         largest = r;
     }
     if (largest != i) {
@@ -78,7 +78,7 @@ void maxHeapify(int * A, int i, int heapSize) {
 void buildMaxHeap(int * A, int length) {
     int heapSize;
     heapSize = length;
-    for (int i = floor(length / 2); i >= 1; i--) {
+    for (int i = floor(length / 2); i >= 0; i--) {
         maxHeapify(A, i, heapSize);
     }
 }
@@ -89,25 +89,22 @@ int heapExtractMax(int * A, int heapSize) {
         cout << "heap underflow";
         return 0;
     }
-    max = A[1];
-    A[1] = A[heapSize];
+    max = A[0];
+    A[0] = A[heapSize];
     heapSize--;
-    maxHeapify(A, 1, heapSize);
+    maxHeapify(A, 0, heapSize);
     return max;
     
 }
 
 void heapsort(int * A, int length) {
     buildMaxHeap(A, length);
-    int heapSize;
-    heapSize = length;
-    for (int i = length; i <= 2; i--) {
+    for (int i = length - 1; i >= 0; i--) {
         int temp;
-        temp = A[1];
-        A[1] = A[i];
+        temp = A[0];
+        A[0] = A[i];
         A[i] = temp;
-        heapSize--;
-        maxHeapify(A, 1, heapSize);
+        maxHeapify(A, 0, i);
     }
 }
 
@@ -124,6 +121,8 @@ int main(int argc, char **argv) {
     for(int i = 0; i < size; i++) {
         cin >> Sequence[i];
     }
+    
+    heapsort(Sequence, size);
     
     for (int i = 0; i < size; i++) {
         cout << Sequence[i] << ";";
