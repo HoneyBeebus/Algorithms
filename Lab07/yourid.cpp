@@ -23,21 +23,8 @@ int cutRod(int * p, int n) {
     return q;
 }
 
-//Driver Function
-int main (int argc, char ** argv) {
-    int size;
-    int *Sequence;
-    int maxRevenue;
-    
-    cin >> size;
-    Sequence = new int[size];
-    
-    for (int i = 0; i < size; i++) {
-        cin >> Sequence[i];
-    }
-    
-    maxRevenue = cutRod(Sequence, size);
-    
+//Printing function
+void printHandle(int maxRevenue, int * Sequence, int size) {
     cout << maxRevenue << endl;
     
     int x = 0;
@@ -53,6 +40,24 @@ int main (int argc, char ** argv) {
     }
     
     cout << x << " " << y << " " << -1 << endl;
+}
+
+//Driver Function
+int main (int argc, char ** argv) {
+    int size;
+    int *Sequence;
+    int maxRevenue;
+    
+    cin >> size;
+    Sequence = new int[size];
+    
+    for (int i = 0; i < size; i++) {
+        cin >> Sequence[i];
+    }
+    
+    maxRevenue = cutRod(Sequence, size);
+    
+    printHandle(maxRevenue, Sequence, size);
     
     delete[] Sequence;
 }
